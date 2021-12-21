@@ -1,0 +1,21 @@
+---
+title: "EpiLPS-vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{EpiLPS-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## EpiLPS vignette under construction
+
+```{r setup}
+library(EpiLPS)
+```

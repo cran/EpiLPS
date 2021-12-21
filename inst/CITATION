@@ -1,0 +1,23 @@
+citHeader("To cite the EpiLPS package in publications use:")
+
+citEntry(entry = "Manual",
+  title        = "EpiLPS: a fast and flexible Bayesian tool for near real-time estimation
+ of the time-varying reproduction number. [Computer Software]",
+  author       = personList(as.person("Gressani Oswaldo")),
+  year         = "2021",
+  url          = "https://github.com/oswaldogressani/EpiLPS",
+
+  textVersion  =
+  paste("Gressani, O. (2021).",
+        "EpiLPS: a fast and flexible Bayesian tool for near real-time estimation
+ of the time-varying reproduction number. [Computer Software]",
+    "https://github.com/oswaldogressani/EpiLPS.")
+)
+
+citFooter("Associated publications:
+
+[1] Gressani, O., Wallinga, J., Althaus, C., Hens, N. and Faes, C. (2021). EpiLPS: a fast and flexible Bayesian tool for near real-time estimation of the time-varying reproduction number. MedRxiv preprint. https://doi.org/10.1101/2021.12.02.21267189.
+
+A lot of time and effort was required to create this package. Please consider citing the package when using it for data analysis.
+
+This project is funded by the European Union’s Research and Innovation Action under the H2020 work programme, EpiPose (grant number 101003688).")
