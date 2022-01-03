@@ -2,7 +2,7 @@ Package: EpiLPS
 Type: Package
 Title: A Bayesian Tool for Near Real-Time Estimation of the
         Reproduction Number
-Version: 1.0.1
+Version: 1.0.2
 Depends: R (>= 4.1.0)
 Authors@R: person("Oswaldo","Gressani", 
  email="oswaldo_gressani@hotmail.fr", role=c("aut","cre"),
@@ -24,11 +24,11 @@ RoxygenNote: 7.1.2
 LinkingTo: RcppArmadillo, Rcpp
 Imports: Rcpp (>= 1.0.7), coda (>= 0.19-4), progress (>= 1.2.2), crayon
         (>= 1.4.1), MASS (>= 7.3-54), EpiEstim (>= 2.2-4), ggplot2 (>=
-        3.3.5), grDevices (>= 4.1.1), gridExtra (>= 2.3)
+        3.3.5), grDevices (>= 4.1.0), gridExtra (>= 2.3)
 Suggests: rmarkdown, knitr
 VignetteBuilder: knitr
 NeedsCompilation: yes
-Packaged: 2021-12-20 18:18:39 UTC; Oswaldo1989
+Packaged: 2022-01-03 10:59:23 UTC; Oswaldo1989
 Author: Oswaldo Gressani [aut, cre] (<https://orcid.org/0000-0003-4152-6159>)
 Repository: CRAN
-Date/Publication: 2021-12-21 20:02:03 UTC
+Date/Publication: 2022-01-03 11:30:04 UTC
