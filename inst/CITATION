@@ -1,7 +1,7 @@
 citHeader("To cite the EpiLPS package in publications use:")
 
 citEntry(entry = "Manual",
-  title        = "EpiLPS: a fast and flexible Bayesian tool for near real-time estimation
+  title        = "EpiLPS: a fast and flexible Bayesian tool for approximate real-time estimation
  of the time-varying reproduction number. [Computer Software]",
   author       = personList(as.person("Gressani Oswaldo")),
   year         = "2021",
@@ -9,7 +9,7 @@ citEntry(entry = "Manual",
 
   textVersion  =
   paste("Gressani, O. (2021).",
-        "EpiLPS: a fast and flexible Bayesian tool for near real-time estimation
+        "EpiLPS: a fast and flexible Bayesian tool for approximate real-time estimation
  of the time-varying reproduction number. [Computer Software]",
     "https://github.com/oswaldogressani/EpiLPS.")
 )
