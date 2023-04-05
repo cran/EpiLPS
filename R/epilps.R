@@ -1,4 +1,4 @@
-#' Estimation of the time-varying reproduction number with Laplacian-P-splines
+#' Old version of epilps
 #'
 #' @description
 #' This routine estimates the instantaneous reproduction number Rt (the mean number
@@ -62,11 +62,11 @@
 #'
 #' @examples
 #' si <- c(0.05, 0.05, 0.1, 0.1, 0.1, 0.1, 0.1, 0.05, 0.05, 0.1, 0.1, 0.1)
-#' epidemic <- episim(serial_interval = si, Rpattern = 2, endepi = 30)
-#' epifit <- epilps(incidence = epidemic$y, K = 30, serial_interval = si,)
+#' epidemic <- episim(si = si, Rpattern = 2, endepi = 30)
+#' # epifit <- epilps(incidence = epidemic$y, K = 30, serial_interval = si,)
 #' # plot(epifit)
 #'
-#' @export
+#' @noRd
 
 epilps <- function(incidence, K = 30, method = c("LPSMAP","LPSMALA"),
                 serial_interval, penorder = 2, hyperprior = c(10,10),
@@ -116,7 +116,7 @@ epilps <- function(incidence, K = 30, method = c("LPSMAP","LPSMALA"),
 
   #-- B-splines basis
   xx <- seq_len(n)
-  B <- Rcpp_cubicBspline(xx, lower = 1, upper = n, K = K) # C++ call
+  B <- Rcpp_KercubicBspline(xx, lower = 1, upper = n, K = K) # C++ call
 
   #-- Penalty matrix
   D <- diag(K)
@@ -181,7 +181,7 @@ epilps <- function(incidence, K = 30, method = c("LPSMAP","LPSMALA"),
     lambda <- exp(v)
 
     # Laplace approximation
-    LL <- Rcpp_Laplace(a_disp, lambda, K, Dlogptheta, D2logptheta)
+    LL <- Rcpp_KerLaplace(theta0 = rep(1.5,K), a_disp, lambda, K, Dlogptheta, D2logptheta)
     thetastar <- as.numeric(LL$Lapmode)
     logdetSigstar <- Re(LL$logdetSigma)
 
@@ -198,7 +198,7 @@ epilps <- function(incidence, K = 30, method = c("LPSMAP","LPSMALA"),
   etamap <- stats::optim(etainit, fn=logphyper, control = list(fnscale=-1))$par
   disphat <- exp(etamap[1])
   lambhat <- exp(etamap[2])
-  Lap_approxx <- Rcpp_Laplace(disphat, lambhat, K, Dlogptheta, D2logptheta)
+  Lap_approxx <- Rcpp_KerLaplace(theta0 = rep(1.5,K), disphat, lambhat, K, Dlogptheta, D2logptheta)
   thetahat <- as.numeric(Lap_approxx$Lapmode)
   Sighat <- Lap_approxx$Lapvar
 
@@ -246,19 +246,19 @@ epilps <- function(incidence, K = 30, method = c("LPSMAP","LPSMALA"),
     tun <- 0.15
 
     #-- Progress bar
-    if (progmala == TRUE) {
-      progbar <- progress::progress_bar$new(
-        format = crayon::cyan$bold("MALA running... [:bar] :percent"),
-        total = M,
-        clear = FALSE
-      )
-    }
+    # if (progmala == TRUE) {
+    #   progbar <- progress::progress_bar$new(
+    #     format = crayon::cyan$bold("MALA running... [:bar] :percent"),
+    #     total = M,
+    #     clear = FALSE
+    #   )
+    # }
 
     for (m in 1:M) {
       # New proposal
       meanLH <- zeta_cur + 0.5 * tun * as.numeric(SigLH %*%
                                                   Dlogtar(zeta_cur, lambda_cur))
-      zeta_prop <- MASS::mvrnorm(n = 1, mu = meanLH, Sigma = (tun * SigLH))
+      zeta_prop <- as.numeric(Rcpp_KerMVN(mu = meanLH, Sigma = (tun * SigLH)))
 
       # Accept/Reject decision
       G_cur  <- Dlogtar(zeta_cur, lambda_cur)
@@ -317,9 +317,9 @@ epilps <- function(incidence, K = 30, method = c("LPSMAP","LPSMALA"),
 
       tun <- (hfun(heval)) ^ 2
 
-      if (progmala == TRUE) {
-        progbar$tick()
-      }
+      # if (progmala == TRUE) {
+      #   progbar$tick()
+      # }
     }
 
     accept_rate <- round(counter / M * 100, 2)
@@ -341,7 +341,7 @@ epilps <- function(incidence, K = 30, method = c("LPSMAP","LPSMALA"),
 
     # Point estimate and CI for mean of incidence counts
     CImu <- function(t, alpha) {
-      bt <- as.numeric(Rcpp_cubicBspline(t, lower = 1, upper = n, K = K))
+      bt <- as.numeric(Rcpp_KercubicBspline(t, lower = 1, upper = n, K = K))
       zalpha <- stats::qnorm(1 - 0.5 * alpha, lower.tail = T)
       sdd <- sqrt(sum((bt * Sighat) %*% bt))
       logCIlow <- sum(thetahat * bt) - zalpha * sdd
