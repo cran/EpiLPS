@@ -9,7 +9,7 @@ library("EpiLPS")
 library("EpiEstim")
 
 ## ---- out.width='100%', fig.align='center', fig.cap='', echo=FALSE------------
-knitr::include_graphics('EpiLPS-Chart.jpg')
+knitr::include_graphics('EpiLPS-Chart.png')
 
 ## ---- out.width='100%', fig.align='center', fig.cap='', echo=FALSE------------
 knitr::include_graphics('EpiLPS-Arch.png')

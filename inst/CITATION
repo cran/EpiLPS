@@ -1,4 +1,19 @@
+
 citHeader("To cite the EpiLPS package in publications use:")
+
+bibentry(
+  bibtype = "Manual",
+  title = "EpiLPS: a fast and flexible Bayesian tool for estimating epidemiological parameters. [Computer Software]",
+  author       = c("Oswaldo Gressani"),
+  year         = "2021",
+  url          = "https://github.com/oswaldogressani/EpiLPS",
+
+  textVersion  =
+  paste("(Starting from version 1.2.0) Gressani, O. (2021).",
+        "EpiLPS: a fast and flexible Bayesian tool for estimating epidemiological          parameters. [Computer Software].",
+    "https://epilps.com/.")
+)
+
 
 bibentry(
   bibtype = "Manual",
@@ -6,13 +21,13 @@ bibentry(
   of the time-varying reproduction number. [Computer Software]",
   author       = c("Oswaldo Gressani"),
   year         = "2021",
-  url          = "https://github.com/oswaldogressani/EpiLPS",
+  url          = "https://epilps.com/",
 
   textVersion  =
-  paste("Gressani, O. (2021).",
+  paste("(Before version 1.2.0) Gressani, O. (2021).",
         "EpiLPS: a fast and flexible Bayesian tool for estimation
   of the time-varying reproduction number. [Computer Software].",
-    "https://github.com/oswaldogressani/EpiLPS.")
+    "https://epilps.com/.")
 )
 
 citFooter("Associated publications:
@@ -21,4 +36,4 @@ citFooter("Associated publications:
 
 A lot of time and effort was required to create this package. Please consider citing the package when using it for data analysis.
 
-This project is funded by the European Union’s Research and Innovation Action under the H2020 work programme, EpiPose (grant number 101003688).")
+This project is funded by the European Union’s Research and Innovation Action under the H2020 work programme, EpiPose (grant number 101003688). It is also supported by the ESCAPE project (101095619) and the VERDI project (101045989), funded by the European Union.")
