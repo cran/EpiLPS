@@ -3,31 +3,11 @@ citHeader("To cite the EpiLPS package in publications use:")
 
 bibentry(
   bibtype = "Manual",
-  title = "EpiLPS: a fast and flexible Bayesian tool for estimating epidemiological parameters. [Computer Software]",
-  author       = c("Oswaldo Gressani"),
-  year         = "2021",
-  url          = "https://github.com/oswaldogressani/EpiLPS",
-
-  textVersion  =
-  paste("(Starting from version 1.2.0) Gressani, O. (2021).",
-        "EpiLPS: a fast and flexible Bayesian tool for estimating epidemiological          parameters. [Computer Software].",
-    "https://epilps.com/.")
-)
-
-
-bibentry(
-  bibtype = "Manual",
-  title        = "EpiLPS: a fast and flexible Bayesian tool for estimation
-  of the time-varying reproduction number. [Computer Software]",
-  author       = c("Oswaldo Gressani"),
-  year         = "2021",
-  url          = "https://epilps.com/",
-
-  textVersion  =
-  paste("(Before version 1.2.0) Gressani, O. (2021).",
-        "EpiLPS: a fast and flexible Bayesian tool for estimation
-  of the time-varying reproduction number. [Computer Software].",
-    "https://epilps.com/.")
+  title = "EpiLPS: A Fast and Flexible Bayesian Tool for Estimating Epidemiological Parameters. [Computer Software]",
+  author = "Oswaldo Gressani",
+  year = 2021,
+  url = "https://epilps.com/",
+  key = "epilps2021"
 )
 
 citFooter("Associated publications:

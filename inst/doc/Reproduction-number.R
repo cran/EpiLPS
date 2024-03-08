@@ -1,17 +1,17 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 
-## ---- include=FALSE-----------------------------------------------------------
+## ----include=FALSE------------------------------------------------------------
 library("EpiLPS")
 library("EpiEstim")
 
-## ---- out.width='100%', fig.align='center', fig.cap='', echo=FALSE------------
+## ----out.width='100%', fig.align='center', fig.cap='', echo=FALSE-------------
 knitr::include_graphics('EpiLPS-Chart.png')
 
-## ---- out.width='100%', fig.align='center', fig.cap='', echo=FALSE------------
+## ----out.width='100%', fig.align='center', fig.cap='', echo=FALSE-------------
 knitr::include_graphics('EpiLPS-Arch.png')
 
 ## ----devepilps, eval=FALSE----------------------------------------------------
